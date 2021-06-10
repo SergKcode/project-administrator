@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react';
 
-export const Project = () => {
-    return (
-        <div>
-            
-        </div>
-    )
+
+const Project = ({project}) => {
+  
+
+    return ( 
+        <li>
+            <button
+                type="button"
+                className="btn btn-blank"
+                onClick="{ }"
+            >{project.nombre} </button>
+        </li>
+     );
 }
+ 
+export default Project;

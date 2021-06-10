@@ -2,27 +2,30 @@ import React, {useState} from 'react'
 
 const NewProject = () => {
 
-    const [proyecto, guardarProyecto] = useState({
-        nombre: ''
+    const [project, saveProject] = useState({
+        name: ''
     });
 
     
-    const { nombre } = proyecto;
+    const { name } = project;
 
     // Lee los contenidos del input
     const onChangeProyecto = e => {
-        
+        saveProject({
+            ...project,
+            [e.target.name] : e.target.value
+        })
     }
 
     
-    const onSubmitProyecto = e => {
+    const onSubmitProject = e => {
         e.preventDefault();
 
         
     }
 
     // Mostrar el formulario
-    const onClickFormulario = () => {
+    const onClickForm = () => {
         
     }
     return ( 
@@ -30,27 +33,27 @@ const NewProject = () => {
             <button 
                 type="button"
                 className="btn btn-block btn-primario"
-                onClick={ onClickFormulario }
+                onClick={ onClickForm }
             >Nuevo Proyecto</button>
 
     
                 <form
                     className="formulario-nuevo-proyecto"
-                    onSubmit={onSubmitProyecto}
+                    onSubmit={onSubmitProject}
                 >
                     <input 
                         type="text"
                         className="input-text"
-                        placeholder="Nombre Proyecto"
-                        name="nombre"
-                        value={nombre}
+                        placeholder="Project Name"
+                        name="name"
+                        value={name}
                         onChange={onChangeProyecto}
                     />
 
                     <input 
                         type="submit"
                         className="btn btn-primario btn-block"
-                        value="Agregar Proyecto"
+                        value="Add Project"
                     />
 
                 </form>
